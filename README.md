@@ -71,3 +71,4 @@ To use the application, click on the "Add Task" button, fill in the task details
 ## Links
 
 - GitHub Repository: [Your GitHub Link](https://github.com/awb2987/task-man)
+- Live Deployment: [Your Deployment Link](https://awb2987.github.io/Task-Man/)
