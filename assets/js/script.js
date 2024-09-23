@@ -16,7 +16,7 @@ function createTaskCard(task) {
         <div class="card-body">
             <h5 class="card-title">${task.title}</h5>
             <p class="card-text">${task.description}</p>
-            <p class="card-text"><small class="text-muted">Due: ${dayjs(task.dueDate).format('MM/DD/YYYY')}</small></p>
+            <p class="card-text">Due Date: ${task.dueDate}</p>
             <button class="btn btn-danger btn-sm delete-task">Delete</button>
         </div>
     </div>
@@ -42,7 +42,7 @@ function renderTaskList() {
             case 'completed':
                 $('#done-cards').append(taskCard);
                 break;
-        };
+        }
     });
 
     // Make task cards draggable
@@ -50,7 +50,7 @@ function renderTaskList() {
         helper: 'clone',
         revert: 'invalid'
     });
-    
+
     // Make lanes droppable
     $('.lane').droppable({
         accept: '.card',
@@ -62,22 +62,22 @@ function renderTaskList() {
 function handleAddTask(event) {
     event.preventDefault();
 
-    const title = $('#task-title').val();
-    const description = $('#task-description').val();
+    const title = $('#task-title').val().trim();
+    const description = $('#task-description').val().trim();
     const dueDate = $('#task-due-date').val();
     const status = $('#task-status').val();
 
     if (!title || !description || !dueDate || !status) {
-        alert('Please fill out all fields.');
+        alert('Please fill out all fields correctly.');
         return;
     }
 
     const newTask = {
         id: generateTaskId(),
-        title: title,
-        description: description,
-        dueDate: dueDate,
-        status: status
+        title,
+        description,
+        dueDate,
+        status
     };
 
     taskList.push(newTask);
@@ -99,19 +99,18 @@ function handleDeleteTask(event) {
 
 // Function to handle dropping a task into a new status lane
 function handleDrop(event, ui) {
-    const taskId = parseInt($(ui.helper).closest('.card').attr('data-id'));
-    const newStatus = $(this).attr('id'); // Get the ID of the lane dropped into
+    const taskId = parseInt($(ui.draggable).attr('data-id'));
+    const newStatus = $(this).attr('id') === 'done' ? 'completed' : $(this).attr('id') === 'in-progress' ? 'in-progress' : 'not-yet-started';
 
-    // Update the task's status in the task list
     taskList = taskList.map(task => {
         if (task.id === taskId) {
-            task.status = newStatus; // Update to new status
+            task.status = newStatus;
         }
         return task;
     });
 
     localStorage.setItem("tasks", JSON.stringify(taskList));
-    renderTaskList(); // Re-render the task list
+    renderTaskList();
 }
 
 // Initialize upon page load
@@ -121,10 +120,25 @@ $(document).ready(function () {
 
     // Event listener for form submission
     $('#task-form').on('submit', handleAddTask);
-
     // Event listener for task deletion
     $('#todo-cards, #in-progress-cards, #done-cards').on('click', '.delete-task', handleDeleteTask);
 
     // Initialize date picker for due date
-    $('#task-due-date').datepicker();
+    $('#task-due-date').datepicker({
+        dateFormat: 'dd/mm/yy'
+    });
+
+    // Assign statuses to lanes for dropping
+    $('#todo-cards').droppable({
+        accept: '.card',
+        drop: handleDrop
+    });
+    $('#in-progress-cards').droppable({
+        accept: '.card',
+        drop: handleDrop
+    });
+    $('#done-cards').droppable({
+        accept: '.card',
+        drop: handleDrop
+    });
 });
