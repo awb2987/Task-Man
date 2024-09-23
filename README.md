@@ -64,9 +64,9 @@ To use the application, click on the "Add Task" button, fill in the task details
 
 ## Screenshot
 
-![Task-Man Screenshot](path/to/your/screenshot-to-do.png)
-![Task-Man Screenshot](path/to/your/screenshot-in-progress.png)
-![Task-Man Screenshot](path/to/your/screenshot-done.png)
+![Task-Man Screenshot](/assets/images/Screenshot-to-do.png)
+![Task-Man Screenshot](/assets/images/Screenshot-in-progress.png)
+![Task-Man Screenshot](/assets/images/Screenshot-done.png)
 
 ## Links
 
