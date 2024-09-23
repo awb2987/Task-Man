@@ -1,0 +1,91 @@
+/* General body styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    background-color: #e9e7e7;
+}
+
+/* Header styles */
+header {
+    background-color: #2f3a46;
+    color: white;
+}
+
+/* Swim lanes container */
+.swim-lanes {
+    min-height: 60vh;
+}
+
+/* Card styling for tasks */
+.card {
+    margin: 10px 0;
+    border: 1px solid #dbe2e9;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+}
+
+.card:hover {
+    background-color: #dde6f0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+}
+
+/* Card title and text styles */
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 1rem;
+}
+
+/* Delete button styles */
+.btn-danger {
+    font-size: 0.8rem;
+}
+
+/* Task form modal styles */
+.modal-content {
+    border-radius: 8px;
+}
+
+/* Task list styles */
+.lane {
+    border: 1px solid #dbe2e9;
+    border-radius: 8px;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+/* From controls */
+.form-control,
+.form-select {
+    border-radius: 8px;
+    border: 1px solid #bbc3cb;
+    box-shadow: none;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #74b6fd;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+}
+
+.btn-primary {
+    border-radius: 8px;
+}
+
+/* Modal header styles */
+.modal-header {
+    border-bottom: 1px solid #dbe2e9;
+}
+
+/* Modal body styles */
+.modal-body {
+    padding: 2rem;
+}
