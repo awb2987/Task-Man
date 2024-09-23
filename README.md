@@ -2,6 +2,18 @@
 
 Task-Man is a simple Kanban board application for task management. It allows users to create tasks, assign them to different statuses (Not Started Yet, In Progress, and Completed), and manage tasks via a drag-and-drop interface. The application leverages Bootstrap for styling and jQuery UI for draggable and droppable functionalities.
 
+## Table of Contents
+
+- [Features](#features)
+- [Files](#files)
+  - [index.html](#indexhtml)
+  - [script.js](#scriptjs)
+  - [style.css](#stylecss)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Screenshot](#screenshot)
+- [Links](#links)
+
 ## Features
 
 - **Add Tasks:** Users can add new tasks through a modal form.
@@ -41,3 +53,21 @@ To get started with Task-Man:
    ```bash
    git clone https://github.com/your-username/task-man.git
    cd task-man
+   ```
+
+2. **Open the project:**
+   Open the `index.html` file in your web browser.
+
+## Usage
+
+To use the application, click on the "Add Task" button, fill in the task details, and manage your tasks by dragging them between the different lanes.
+
+## Screenshot
+
+![Task-Man Screenshot](path/to/your/screenshot-to-do.png)
+![Task-Man Screenshot](path/to/your/screenshot-in-progress.png)
+![Task-Man Screenshot](path/to/your/screenshot-done.png)
+
+## Links
+
+- GitHub Repository: [Your GitHub Link](https://github.com/awb2987/task-man)
